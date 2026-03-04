@@ -37,7 +37,7 @@ const ConsultationModal = ({ trigger }: { trigger?: React.ReactNode }) => {
             <Button
               type="submit"
               disabled={!agreed}
-              className="w-full h-12 rounded-full text-base font-semibold bg-[#4CAF50] hover:bg-[#43A047] text-white"
+              className="w-full h-12 rounded-full text-base font-semibold bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               Заказать консультацию
             </Button>
