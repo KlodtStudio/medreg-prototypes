@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -62,6 +62,15 @@ const articles = [
 const Index = () => {
   const [slide, setSlide] = useState(0);
 
+  const nextSlide = useCallback(() => {
+    setSlide((s) => (s + 1) % slides.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 10000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
+
   return (
     <Layout>
       {/* Hero Slider */}
@@ -72,9 +81,11 @@ const Index = () => {
             <p className="text-lg text-muted-foreground mb-6">{slides[slide].text}</p>
             <div className="flex flex-wrap gap-3">
               <Button asChild><Link to={slides[slide].to}>Подробнее</Link></Button>
-              <Button variant="outline" onClick={() => document.getElementById("final-form")?.scrollIntoView({ behavior: "smooth" })}>
-                Получить прогноз
-              </Button>
+              {slide === 0 && (
+                <Button variant="outline" onClick={() => document.getElementById("final-form")?.scrollIntoView({ behavior: "smooth" })}>
+                  Получить прогноз
+                </Button>
+              )}
             </div>
             
           </div>
