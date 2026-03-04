@@ -32,12 +32,12 @@ const slides = [
 ];
 
 const services = [
-  { title: "Регистрация «под ключ»", price: "от 750 000 ₽", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/" },
-  { title: "Клинические испытания", price: "от 40 000 ₽", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/klinicheskie/" },
-  { title: "Изменения в РУ", price: "от 60 000 ₽", to: "/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/" },
-  { title: "Разработка ТУ", price: "от 40 000 ₽", to: "/uslugi/razrabotka-dokumentacii/tu/" },
-  { title: "Сертификация", price: "от 150 000 ₽", to: "/uslugi/sertifikaciya/" },
-  { title: "Аудит СМК", price: "Цена по запросу", to: "/uslugi/smk/audit/" },
+  { title: "Регистрация «под ключ»", desc: "Полный цикл регистрации медицинского изделия — от подготовки документации до получения регистрационного удостоверения.", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/" },
+  { title: "Клинические испытания", desc: "Организация и сопровождение клинических испытаний медицинских изделий в аккредитованных центрах.", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/klinicheskie/" },
+  { title: "Изменения в РУ", desc: "Подготовка и подача документов для внесения изменений в действующее регистрационное удостоверение.", to: "/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/" },
+  { title: "Разработка ТУ", desc: "Разработка технических условий и нормативной документации для медицинских изделий.", to: "/uslugi/razrabotka-dokumentacii/tu/" },
+  { title: "Сертификация", desc: "Оформление деклараций и сертификатов соответствия требованиям технических регламентов.", to: "/uslugi/sertifikaciya/" },
+  { title: "Аудит СМК", desc: "Проверка системы менеджмента качества на соответствие требованиям стандартов и подготовка к сертификации.", to: "/uslugi/smk/audit/" },
 ];
 
 const advantages = [
@@ -134,22 +134,31 @@ const Index = () => {
       </section>
 
       <TrustLogos />
-      <StatsBlock />
 
       {/* Services */}
       <section className="py-16">
         <div className="container">
           <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Наши услуги</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s) => (
-              <Link key={s.to} to={s.to} className="block border border-border rounded-lg p-6 hover:shadow-md transition-shadow bg-background">
+              <div key={s.to} className="border border-border rounded-lg p-6 bg-background flex flex-col">
                 <h3 className="font-semibold text-lg mb-2">{s.title}</h3>
-                <div className="text-primary font-medium">{s.price}</div>
-              </Link>
+                <p className="text-sm text-muted-foreground mb-4 flex-1">{s.desc}</p>
+                <Button asChild variant="default" className="w-fit">
+                  <Link to={s.to}>Подробнее</Link>
+                </Button>
+              </div>
             ))}
+          </div>
+          <div className="flex justify-center mt-10">
+            <Button asChild variant="outline" size="lg">
+              <Link to="/uslugi/">Все услуги</Link>
+            </Button>
           </div>
         </div>
       </section>
+
+      <StatsBlock />
 
       {/* Why us */}
       <section className="py-16 bg-surface">
