@@ -76,7 +76,7 @@ const Index = () => {
                 Получить прогноз
               </Button>
             </div>
-            <p className="text-xs text-muted-foreground mt-2">Без рассылок и рекламы.</p>
+            
           </div>
           <div className="flex items-center gap-3 mt-8">
             <button onClick={() => setSlide((s) => (s - 1 + slides.length) % slides.length)} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-surface transition-colors">
