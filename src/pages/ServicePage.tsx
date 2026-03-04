@@ -351,22 +351,19 @@ const ServicePage = () => {
           { label: data.title },
         ]} />
 
-        {/* Hero */}
-        <div className="mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-3">{data.title}</h1>
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-xl font-semibold text-primary">
-              {showPrice ? data.price : "Цена по запросу"}
-            </span>
-            <button
-              onClick={() => setShowPrice(!showPrice)}
-              className="text-xs text-muted-foreground underline"
-            >
-              {showPrice ? "Скрыть цену" : "Показать цену"}
-            </button>
+        {/* Hero Banner */}
+        <div className="relative mb-12 -mx-4 md:-mx-8 rounded-xl overflow-hidden bg-gradient-to-r from-foreground/90 to-foreground/70 text-white px-6 md:px-12 py-10 md:py-16">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtOS45NDEgMC0xOCA4LjA1OS0xOCAxOHM4LjA1OSAxOCAxOCAxOCAxOC04LjA1OSAxOC0xOC04LjA1OS0xOC0xOC0xOHptMCAzMmMtNy43MzIgMC0xNC02LjI2OC0xNC0xNHM2LjI2OC0xNCAxNC0xNCAxNCA2LjI2OCAxNCAxNC02LjI2OCAxNC0xNCAxNHoiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9nPjwvc3ZnPg==')] opacity-30" />
+          <div className="relative max-w-2xl">
+            <h1 className="text-3xl md:text-4xl font-bold mb-3">{data.title}</h1>
+            <div className="mb-4">
+              <span className="text-xl font-semibold text-primary-foreground/90">
+                {data.price}
+              </span>
+            </div>
+            <p className="text-white/80 max-w-2xl mb-6">{data.description}</p>
+            <ConsultationModal trigger={<Button variant="secondary" size="lg">Заказать услугу</Button>} />
           </div>
-          <p className="text-muted-foreground max-w-2xl mb-4">{data.description}</p>
-          <ConsultationModal trigger={<Button>Получить расчёт</Button>} />
         </div>
 
         {/* Benefits */}
