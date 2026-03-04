@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FinalCTAForm from "@/components/FinalCTAForm";
@@ -318,11 +320,68 @@ const servicesData: Record<string, ServiceData> = {
 };
 
 const relatedServices = [
-  { title: "Регистрация «под ключ»", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/" },
-  { title: "Клинические испытания", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/klinicheskie/" },
-  { title: "Разработка ТУ", to: "/uslugi/razrabotka-dokumentacii/tu/" },
-  { title: "Сертификация", to: "/uslugi/sertifikaciya/deklaraciya-tr-ts/" },
+  { title: "Регистрация «под ключ»", desc: "Полный цикл регистрации медицинского изделия — от подготовки документации до получения регистрационного удостоверения.", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/" },
+  { title: "Клинические испытания", desc: "Организация и сопровождение клинических испытаний медицинских изделий в аккредитованных центрах.", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/klinicheskie/" },
+  { title: "Разработка ТУ", desc: "Разработка технических условий и нормативной документации для медицинских изделий.", to: "/uslugi/razrabotka-dokumentacii/tu/" },
+  { title: "Сертификация", desc: "Оформление деклараций и сертификатов соответствия требованиям технических регламентов.", to: "/uslugi/sertifikaciya/deklaraciya-tr-ts/" },
+  { title: "Изменения в РУ", desc: "Подготовка и подача документов для внесения изменений в действующее регистрационное удостоверение.", to: "/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/" },
+  { title: "Аудит СМК", desc: "Проверка системы менеджмента качества на соответствие требованиям стандартов.", to: "/uslugi/smk/audit/" },
 ];
+
+const RelatedServicesBlock = ({ currentService }: { currentService: string }) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const filtered = relatedServices.filter((s) => !s.to.includes(currentService)).slice(0, 4);
+
+  if (filtered.length === 0) return null;
+
+  const scroll = (dir: number) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: dir * 300, behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div className="mb-12">
+      <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Другие услуги</h2>
+
+      {/* Mobile slider */}
+      <div className="md:hidden relative">
+        <div ref={scrollRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4">
+          {filtered.map((s) => (
+            <div key={s.to} className="min-w-[85vw] snap-start border border-border rounded-lg p-6 bg-background flex flex-col">
+              <h3 className="font-semibold text-lg mb-2">{s.title}</h3>
+              <p className="text-sm text-muted-foreground mb-4 flex-1">{s.desc}</p>
+              <Button asChild variant="default" className="w-fit">
+                <Link to={s.to}>Подробнее</Link>
+              </Button>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center gap-3 mt-4">
+          <button onClick={() => scroll(-1)} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-surface transition-colors">
+            <ChevronLeft size={18} />
+          </button>
+          <button onClick={() => scroll(1)} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-surface transition-colors">
+            <ChevronRight size={18} />
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop grid */}
+      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {filtered.map((s) => (
+          <div key={s.to} className="border border-border rounded-lg p-6 bg-background flex flex-col">
+            <h3 className="font-semibold text-lg mb-2">{s.title}</h3>
+            <p className="text-sm text-muted-foreground mb-4 flex-1">{s.desc}</p>
+            <Button asChild variant="default" className="w-fit">
+              <Link to={s.to}>Подробнее</Link>
+            </Button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const ServicePage = () => {
   const { category, service } = useParams<{ category: string; service: string }>();
@@ -490,16 +549,7 @@ const ServicePage = () => {
         </div>
 
         {/* Related services */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Другие услуги</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {relatedServices.filter((s) => !s.to.includes(service || "")).slice(0, 4).map((s) => (
-              <Link key={s.to} to={s.to} className="border border-border rounded-lg p-4 hover:shadow-md transition-shadow">
-                <h3 className="font-medium text-sm">{s.title}</h3>
-              </Link>
-            ))}
-          </div>
-        </div>
+        <RelatedServicesBlock currentService={service || ""} />
       </div>
 
       <FinalCTAForm />
