@@ -383,6 +383,7 @@ const RelatedServicesBlock = ({ currentService }: { currentService: string }) =>
   );
 };
 
+const ServicePage = () => {
   const { category, service } = useParams<{ category: string; service: string }>();
   
   const key = `${category}/${service}`;
