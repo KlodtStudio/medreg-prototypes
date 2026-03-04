@@ -327,7 +327,7 @@ const relatedServices = [
 
 const ServicePage = () => {
   const { category, service } = useParams<{ category: string; service: string }>();
-  const [showPrice, setShowPrice] = useState(true);
+  
   const key = `${category}/${service}`;
   const data = servicesData[key];
 
