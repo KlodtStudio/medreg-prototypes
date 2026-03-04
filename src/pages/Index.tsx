@@ -149,8 +149,6 @@ const Index = () => {
         </div>
       </section>
 
-      <TrustLogos />
-
       {/* Services */}
       <section className="py-16">
         <div className="container">
@@ -174,8 +172,6 @@ const Index = () => {
         </div>
       </section>
 
-      <StatsBlock />
-
       {/* Why us */}
       <section className="py-16 bg-surface">
         <div className="container">
@@ -198,6 +194,10 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <TrustLogos />
+
+      <StatsBlock />
 
       {/* Cases */}
       <section className="py-16">
