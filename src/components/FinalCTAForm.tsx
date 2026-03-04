@@ -3,7 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const FinalCTAForm = () => {
+interface FinalCTAFormProps {
+  title?: string;
+  subtitle?: string;
+}
+
+const FinalCTAForm = ({
+  title = "Нужен прогноз по срокам и рискам именно по вашему изделию?",
+  subtitle = "Оставьте заявку. Разберём ваш кейс и предложим рабочий маршрут без лишних итераций.",
+}: FinalCTAFormProps) => {
   const [submitted, setSubmitted] = useState(false);
 
   if (submitted) {
@@ -21,10 +29,10 @@ const FinalCTAForm = () => {
     <section className="py-16 bg-surface" id="final-form">
       <div className="container max-w-2xl">
         <h2 className="text-2xl md:text-3xl font-semibold text-center mb-2">
-          Нужен прогноз по срокам и рискам именно по вашему изделию?
+          {title}
         </h2>
         <p className="text-center text-muted-foreground mb-8">
-          Оставьте заявку. Разберём ваш кейс и предложим рабочий маршрут без лишних итераций.
+          {subtitle}
         </p>
         <form
           className="space-y-4"

@@ -8,6 +8,57 @@ import ConsultationModal from "@/components/ConsultationModal";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
+const ctaTexts: Record<string, { title: string; subtitle: string }> = {
+  "registraciya-meditsinskih-izdeliy/pod-klyuch": {
+    title: "Нужен прогноз по срокам и рискам именно по вашему изделию?",
+    subtitle: "Оставьте заявку. Разберём ваш кейс и предложим рабочий маршрут без лишних итераций.",
+  },
+  "registraciya-meditsinskih-izdeliy/izmeneniya-v-ru": {
+    title: "Нужно внести изменения в РУ без лишних итераций?",
+    subtitle: "Опишите, что меняется, и приложите текущие документы. Мы скажем, какой пакет нужен, сроки и стоимость работ.",
+  },
+  "registraciya-meditsinskih-izdeliy/eto-medizdelie-ili-net": {
+    title: "Нужно понять: изделие — медицинское или нет?",
+    subtitle: "Коротко опишите изделие и назначение. Мы подскажем статус и следующий шаг: что подготовить и сколько это займёт.",
+  },
+  "ispytaniya-meditsinskih-izdeliy/klinicheskie": {
+    title: "Нужно организовать испытания по вашему изделию?",
+    subtitle: "Опишите изделие и цель. Мы подскажем маршрут испытаний, что подготовить, и оценим сроки и стоимость сопровождения.",
+  },
+  "ispytaniya-meditsinskih-izdeliy/tehnicheskie": {
+    title: "Нужно организовать испытания по вашему изделию?",
+    subtitle: "Опишите изделие и цель. Мы подскажем маршрут испытаний, что подготовить, и оценим сроки и стоимость сопровождения.",
+  },
+  "ispytaniya-meditsinskih-izdeliy/ems": {
+    title: "Нужно организовать испытания по вашему изделию?",
+    subtitle: "Опишите изделие и цель. Мы подскажем маршрут испытаний, что подготовить, и оценим сроки и стоимость сопровождения.",
+  },
+  "razrabotka-dokumentacii/tu": {
+    title: "Нужны документы под требования проекта?",
+    subtitle: "Опишите изделие и что уже есть. Мы уточним состав документов, сроки и стоимость подготовки.",
+  },
+  "razrabotka-dokumentacii/risk-management": {
+    title: "Нужны документы под требования проекта?",
+    subtitle: "Опишите изделие и что уже есть. Мы уточним состав документов, сроки и стоимость подготовки.",
+  },
+  "sertifikaciya/deklaraciya-tr-ts": {
+    title: "Нужна сертификация или декларация под вашу задачу?",
+    subtitle: "Опишите изделие и цель. Мы подскажем подходящий вариант, список документов, сроки и стоимость работ.",
+  },
+  "sertifikaciya/sertifikat-tr-ts": {
+    title: "Нужна сертификация или декларация под вашу задачу?",
+    subtitle: "Опишите изделие и цель. Мы подскажем подходящий вариант, список документов, сроки и стоимость работ.",
+  },
+  "licenzirovanie/proizvodstvo": {
+    title: "Нужна лицензия на производство медицинской техники?",
+    subtitle: "Расскажите о компании и работах, которые планируете. Мы подскажем требования, пакет документов, сроки и стоимость сопровождения.",
+  },
+  "smk/audit": {
+    title: "Нужно подготовить СМК или пройти аудит?",
+    subtitle: "Опишите текущую ситуацию и цель. Мы предложим план работ, сроки и формат сопровождения.",
+  },
+};
+
 interface ServiceData {
   title: string;
   categoryTitle: string;
@@ -552,7 +603,10 @@ const ServicePage = () => {
         <RelatedServicesBlock currentService={service || ""} />
       </div>
 
-      <FinalCTAForm />
+      <FinalCTAForm
+        title={ctaTexts[`${category}/${service}`]?.title}
+        subtitle={ctaTexts[`${category}/${service}`]?.subtitle}
+      />
     </Layout>
   );
 };
