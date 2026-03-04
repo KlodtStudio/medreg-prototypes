@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ConsultationModal from "./ConsultationModal";
 
 const footerSections = [
   {
@@ -51,6 +52,13 @@ const Footer = () => (
             <div>+7 (XXX) XXX-XX-XX</div>
             <div>info@regmt.ru</div>
             <div>г. Москва, ул. Примерная, д. 1</div>
+          </div>
+          <div className="mt-4">
+            <ConsultationModal trigger={
+              <button className="px-5 py-2 rounded-md border border-primary-foreground/40 text-primary-foreground text-sm font-medium hover:bg-primary-foreground/10 transition-colors">
+                Консультация
+              </button>
+            } />
           </div>
         </div>
       </div>
