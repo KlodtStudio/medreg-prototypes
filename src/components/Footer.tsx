@@ -62,16 +62,6 @@ const Footer = () => (
           </ul>
         </div>
         <div className="col-span-2 md:col-span-1">
-          <div className="font-semibold mb-3">О нас</div>
-          <ul className="space-y-2 text-sm opacity-80">
-            {footerLegal.map((l) => (
-              <li key={l.to}>
-                <Link to={l.to} className="hover:opacity-100 transition-opacity">{l.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="col-span-2 md:col-span-1">
           <div className="font-semibold mb-3">Наши контакты</div>
           <div className="text-sm opacity-80 space-y-3">
             <div>+7 (XXX) XXX-XX-XX</div>
@@ -82,10 +72,20 @@ const Footer = () => (
           <div className="mt-5">
             <ConsultationModal trigger={
               <button className="px-5 py-2.5 rounded-md border border-primary-foreground/40 text-primary-foreground text-sm font-medium hover:bg-primary-foreground/10 transition-colors">
-                Заказать звонок
+                Консультация
               </button>
             } />
           </div>
+        </div>
+        <div className="col-span-2 md:col-span-1 order-last">
+          <div className="font-semibold mb-3">Документы</div>
+          <ul className="space-y-2 text-sm opacity-80">
+            {footerLegal.map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} className="hover:opacity-100 transition-opacity">{l.label}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
