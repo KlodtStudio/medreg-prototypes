@@ -134,22 +134,31 @@ const Index = () => {
       </section>
 
       <TrustLogos />
-      <StatsBlock />
 
       {/* Services */}
       <section className="py-16">
         <div className="container">
           <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Наши услуги</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s) => (
-              <Link key={s.to} to={s.to} className="block border border-border rounded-lg p-6 hover:shadow-md transition-shadow bg-background">
+              <div key={s.to} className="border border-border rounded-lg p-6 bg-background flex flex-col">
                 <h3 className="font-semibold text-lg mb-2">{s.title}</h3>
-                <div className="text-primary font-medium">{s.price}</div>
-              </Link>
+                <p className="text-sm text-muted-foreground mb-4 flex-1">{s.desc}</p>
+                <Button asChild variant="default" className="w-fit">
+                  <Link to={s.to}>Подробнее</Link>
+                </Button>
+              </div>
             ))}
+          </div>
+          <div className="flex justify-center mt-10">
+            <Button asChild variant="outline" size="lg">
+              <Link to="/uslugi/">Все услуги</Link>
+            </Button>
           </div>
         </div>
       </section>
+
+      <StatsBlock />
 
       {/* Why us */}
       <section className="py-16 bg-surface">
