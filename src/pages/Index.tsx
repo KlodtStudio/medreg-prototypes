@@ -108,11 +108,11 @@ const Index = () => {
       {/* About block */}
       <section className="py-16 md:py-20">
         <div className="container max-w-4xl text-center">
-          <div className="w-24 h-1 bg-primary mx-auto mb-8" />
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase mb-4 leading-tight">
+          <div className="w-16 h-1 bg-primary mx-auto mb-8" />
+          <h2 className="text-2xl md:text-3xl font-semibold mb-3">
             Специализированный центр регистрации медицинских изделий
           </h2>
-          <p className="text-lg md:text-xl font-semibold mb-6">
+          <p className="text-base md:text-lg text-muted-foreground font-medium mb-6">
             Вывод на рынок РФ и ЕАЭС медицинских технологий
           </p>
           <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
