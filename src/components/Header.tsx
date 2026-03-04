@@ -57,7 +57,7 @@ const serviceCategories = [
 
 const mainMenu = [
   { label: "Цены", to: "/ceny/" },
-  { label: "FAQ", to: "/faq/" },
+  { label: "Вопрос-ответ", to: "/faq/" },
   { label: "Статьи", to: "/blog/" },
   { label: "Отзывы", to: "/otzyvy/" },
   { label: "О компании", to: "/about/" },
