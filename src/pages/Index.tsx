@@ -220,6 +220,32 @@ const Index = () => {
         </div>
       </section>
 
+      {/* How we work */}
+      <section className="py-16">
+        <div className="container">
+          <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Как мы работаем</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+            {[
+              { num: "01", title: "Заявка", desc: "Клиент высылает техническое описание и расписывает комплектацию изделия" },
+              { num: "02", title: "Оценка", desc: "Мы считаем стоимость проекта, сроки и виды работ" },
+              { num: "03", title: "Договор", desc: "Подписываем договор" },
+              { num: "04", title: "Работа", desc: "Начинается работа по проекту. Проводится анализ, коррекция и разработка новой документации" },
+            ].map((step, i) => (
+              <div key={step.num} className="relative text-center">
+                <div className="text-sm font-bold text-primary mb-2">{step.num}</div>
+                <div className="w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center mx-auto mb-4">
+                  <span className="text-primary font-bold text-lg">{i + 1}</span>
+                </div>
+                {i < 3 && (
+                  <div className="hidden lg:block absolute top-10 left-[calc(50%+32px)] w-[calc(100%-64px)] h-px bg-border" />
+                )}
+                <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <StatsBlock />
 
       {/* Cases */}
