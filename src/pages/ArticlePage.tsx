@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Share2 } from "lucide-react";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FinalCTAForm from "@/components/FinalCTAForm";
@@ -98,13 +99,57 @@ const ArticlePage = () => (
           </p>
         </div>
 
-        {/* Author */}
-        <div className="mt-12 p-6 bg-surface rounded-lg flex flex-col sm:flex-row gap-4 items-start">
-          <ImagePlaceholder label="Фото автора" className="w-20 h-20 shrink-0" aspectRatio="1/1" />
-          <div>
-            <div className="text-sm text-muted-foreground mb-1">Автор статьи</div>
-            <div className="font-semibold">Виктория Кузнецова</div>
-            <p className="text-sm text-muted-foreground mt-1">В регистрации медицинских изделий с 2015 года. Более 300 регистрационных удостоверений различного класса риска и сложности.</p>
+        {/* Author + Share */}
+        <div className="mt-12 flex flex-col sm:flex-row gap-4">
+          <div className="flex-1 p-6 bg-surface rounded-lg flex flex-col sm:flex-row gap-4 items-start">
+            <ImagePlaceholder label="Фото автора" className="w-20 h-20 shrink-0" aspectRatio="1/1" />
+            <div>
+              <div className="text-sm text-muted-foreground mb-1">Автор статьи</div>
+              <div className="font-semibold">Виктория Кузнецова</div>
+              <p className="text-sm text-muted-foreground mt-1">В регистрации медицинских изделий с 2015 года. Более 300 регистрационных удостоверений различного класса риска и сложности.</p>
+            </div>
+          </div>
+          <div className="flex sm:flex-col items-center gap-2 shrink-0">
+            <a
+              href={`https://vk.com/share.php?url=${encodeURIComponent(window.location.href)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-lg bg-[#4680C2] flex items-center justify-center text-white hover:opacity-80 transition-opacity"
+              aria-label="Поделиться ВКонтакте"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.587-1.496c.598-.189 1.37 1.258 2.188 1.814.617.42 1.088.328 1.088.328l2.185-.03s1.142-.071.6-.97c-.044-.074-.316-.665-1.627-1.879-1.372-1.27-1.188-1.065.465-3.263.806-1.075 1.254-1.97 1.092-2.241-.066-.105-.26-.282-1.26-.282h-2.385s-.167-.023-.291.051c-.121.073-.2.243-.2.243s-.359.957-.838 1.77c-1.01 1.716-1.414 1.808-1.58 1.702-.385-.247-.289-1.095-.289-1.676 0-1.823.276-2.582-.538-2.778-.27-.065-.469-.108-1.16-.115-.886-.01-1.636.003-2.06.21-.283.138-.5.446-.368.464.164.022.535.1.731.367.253.345.244 1.12.244 1.12s.146 2.145-.339 2.412c-.333.183-.788-.19-1.766-1.898-.461-.805-.81-1.694-.81-1.694s-.067-.165-.187-.253c-.145-.107-.348-.14-.348-.14H5.428s-.266.007-.363.123c-.087.103-.007.317-.007.317s1.687 3.938 3.596 5.924c1.749 1.82 3.737 1.701 3.737 1.701h.394z"/></svg>
+            </a>
+            <a
+              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-lg bg-[#1DA1F2] flex items-center justify-center text-white hover:opacity-80 transition-opacity"
+              aria-label="Поделиться в Twitter"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.28 4.28 0 0 0 1.88-2.37 8.59 8.59 0 0 1-2.72 1.04 4.28 4.28 0 0 0-7.32 3.91A12.16 12.16 0 0 1 3 4.79a4.28 4.28 0 0 0 1.32 5.72 4.24 4.24 0 0 1-1.94-.54v.05a4.28 4.28 0 0 0 3.43 4.2 4.28 4.28 0 0 1-1.93.07 4.29 4.29 0 0 0 4 2.97A8.59 8.59 0 0 1 2 19.54a12.13 12.13 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.37-.01-.56A8.72 8.72 0 0 0 23 6.29a8.49 8.49 0 0 1-2.54.7z"/></svg>
+            </a>
+            <a
+              href={`https://connect.ok.ru/offer?url=${encodeURIComponent(window.location.href)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-lg bg-[#EE8208] flex items-center justify-center text-white hover:opacity-80 transition-opacity"
+              aria-label="Поделиться в Одноклассниках"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 7.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm4.44 3.06a8.1 8.1 0 0 1-3.19 1.27l2.89 2.87a1.25 1.25 0 0 1-1.77 1.77L12 16.1l-2.37 2.37a1.25 1.25 0 0 1-1.77-1.77l2.89-2.87a8.1 8.1 0 0 1-3.19-1.27 1.25 1.25 0 1 1 1.38-2.08A5.6 5.6 0 0 0 12 14c1.07 0 2.1-.3 3.06-.84a1.25 1.25 0 1 1 1.38 2.08v-.68z"/></svg>
+            </a>
+            <button
+              onClick={() => {
+                if (navigator.share) {
+                  navigator.share({ title: document.title, url: window.location.href });
+                } else {
+                  navigator.clipboard.writeText(window.location.href);
+                }
+              }}
+              className="w-10 h-10 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
+              aria-label="Поделиться"
+            >
+              <Share2 size={18} />
+            </button>
           </div>
         </div>
       </article>
