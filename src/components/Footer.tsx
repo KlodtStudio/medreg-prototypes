@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ConsultationModal from "./ConsultationModal";
 
 const footerSections = [
   {
@@ -52,7 +53,13 @@ const Footer = () => (
             <div>info@regmt.ru</div>
             <div>г. Москва, ул. Примерная, д. 1</div>
           </div>
-        </div>
+          <div className="mt-4">
+            <ConsultationModal trigger={
+              <button className="px-5 py-2 rounded-md border border-primary-foreground/40 text-primary-foreground text-sm font-medium hover:bg-primary-foreground/10 transition-colors">
+                Консультация
+              </button>
+            } />
+          </div>
       </div>
       <div className="mt-10 pt-6 border-t border-primary-foreground/20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-60">
         <div>© {new Date().getFullYear()} RegMT. Все права защищены.</div>
