@@ -234,8 +234,8 @@ const Index = () => {
         <div className="container">
           <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Рекомендательные письма</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((n) => (
-              <ImagePlaceholder key={n} label={`Рекомендательное письмо ${n}`} aspectRatio="3/4" />
+            {letters.map((l) => (
+              <img key={l.alt} src={l.src} alt={l.alt} className="rounded-lg border border-border w-full object-cover" style={{ aspectRatio: "3/4" }} />
             ))}
           </div>
         </div>
