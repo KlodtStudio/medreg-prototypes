@@ -328,7 +328,61 @@ const relatedServices = [
   { title: "Аудит СМК", desc: "Проверка системы менеджмента качества на соответствие требованиям стандартов.", to: "/uslugi/smk/audit/" },
 ];
 
-const ServicePage = () => {
+const RelatedServicesBlock = ({ currentService }: { currentService: string }) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const filtered = relatedServices.filter((s) => !s.to.includes(currentService)).slice(0, 4);
+
+  if (filtered.length === 0) return null;
+
+  const scroll = (dir: number) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: dir * 300, behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div className="mb-12">
+      <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Другие услуги</h2>
+
+      {/* Mobile slider */}
+      <div className="md:hidden relative">
+        <div ref={scrollRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4">
+          {filtered.map((s) => (
+            <div key={s.to} className="min-w-[85vw] snap-start border border-border rounded-lg p-6 bg-background flex flex-col">
+              <h3 className="font-semibold text-lg mb-2">{s.title}</h3>
+              <p className="text-sm text-muted-foreground mb-4 flex-1">{s.desc}</p>
+              <Button asChild variant="default" className="w-fit">
+                <Link to={s.to}>Подробнее</Link>
+              </Button>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center gap-3 mt-4">
+          <button onClick={() => scroll(-1)} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-surface transition-colors">
+            <ChevronLeft size={18} />
+          </button>
+          <button onClick={() => scroll(1)} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-surface transition-colors">
+            <ChevronRight size={18} />
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop grid */}
+      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {filtered.map((s) => (
+          <div key={s.to} className="border border-border rounded-lg p-6 bg-background flex flex-col">
+            <h3 className="font-semibold text-lg mb-2">{s.title}</h3>
+            <p className="text-sm text-muted-foreground mb-4 flex-1">{s.desc}</p>
+            <Button asChild variant="default" className="w-fit">
+              <Link to={s.to}>Подробнее</Link>
+            </Button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
   const { category, service } = useParams<{ category: string; service: string }>();
   
   const key = `${category}/${service}`;
