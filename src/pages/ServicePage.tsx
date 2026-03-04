@@ -552,7 +552,10 @@ const ServicePage = () => {
         <RelatedServicesBlock currentService={service || ""} />
       </div>
 
-      <FinalCTAForm />
+      <FinalCTAForm
+        title={ctaTexts[`${category}/${service}`]?.title}
+        subtitle={ctaTexts[`${category}/${service}`]?.subtitle}
+      />
     </Layout>
   );
 };
