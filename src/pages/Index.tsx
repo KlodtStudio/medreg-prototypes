@@ -103,7 +103,7 @@ const Index = () => {
       {/* Hero Slider */}
       <section className="relative bg-surface">
         <div className="container py-16 md:py-24">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl min-h-[200px] md:min-h-[220px]">
             <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">{slides[slide].title}</h1>
             <p className="text-lg text-muted-foreground mb-6">{slides[slide].text}</p>
             <div className="flex flex-wrap gap-3">
