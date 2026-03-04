@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Search, ChevronDown, ChevronRight } from "lucide-react";
 import ConsultationModal from "./ConsultationModal";
+import SearchDropdown from "./SearchDropdown";
 
 const serviceCategories = [
   {
@@ -125,7 +126,7 @@ const Header = () => {
             <div>info@regmt.ru</div>
           </div>
           <ConsultationModal />
-          <Link to="/search/" aria-label="Поиск"><Search size={20} className="text-muted-foreground hover:text-primary transition-colors" /></Link>
+          <SearchDropdown />
         </div>
 
         {/* Mobile right */}
