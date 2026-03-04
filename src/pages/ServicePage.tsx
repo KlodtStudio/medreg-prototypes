@@ -449,7 +449,7 @@ const ServicePage = () => {
                 {data.priceTable.map((row, i) => (
                   <tr key={i} className="border-t border-border">
                     <td className="p-3">{row.name}</td>
-                    <td className="p-3 font-medium text-primary">{showPrice ? row.price : "Цена по запросу"}</td>
+                    <td className="p-3 font-medium text-primary">{row.price}</td>
                   </tr>
                 ))}
               </tbody>
