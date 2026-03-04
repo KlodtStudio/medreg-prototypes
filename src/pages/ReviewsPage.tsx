@@ -2,13 +2,18 @@ import { useState } from "react";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FinalCTAForm from "@/components/FinalCTAForm";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import letter1 from "@/assets/letters/letter-1.png";
+import letter2 from "@/assets/letters/letter-2.png";
+import letter3 from "@/assets/letters/letter-3.png";
+import letter4 from "@/assets/letters/letter-4.png";
 
-const reviews = Array.from({ length: 8 }, (_, i) => ({
-  id: i + 1,
-  label: `Рекомендательное письмо ${i + 1}`,
-}));
+const reviews = [
+  { id: 1, src: letter1, alt: "Рекомендательное письмо Straumann" },
+  { id: 2, src: letter2, alt: "Рекомендательное письмо Европа Медикал" },
+  { id: 3, src: letter3, alt: "Рекомендательное письмо Aldent" },
+  { id: 4, src: letter4, alt: "Рекомендательное письмо BOWA Medical" },
+];
 
 const ReviewsPage = () => {
   const [selected, setSelected] = useState<number | null>(null);
@@ -22,7 +27,7 @@ const ReviewsPage = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {reviews.map((r) => (
             <button key={r.id} onClick={() => setSelected(r.id)} className="text-left">
-              <ImagePlaceholder label={r.label} aspectRatio="3/4" className="hover:shadow-md transition-shadow cursor-pointer" />
+              <img src={r.src} alt={r.alt} className="rounded-lg border border-border w-full object-cover hover:shadow-md transition-shadow cursor-pointer" style={{ aspectRatio: "3/4" }} />
             </button>
           ))}
         </div>
@@ -30,7 +35,10 @@ const ReviewsPage = () => {
 
       <Dialog open={selected !== null} onOpenChange={() => setSelected(null)}>
         <DialogContent className="max-w-lg">
-          {selected && <ImagePlaceholder label={`Рекомендательное письмо ${selected} (полный вид)`} aspectRatio="3/4" className="w-full" />}
+          {selected && (() => {
+            const review = reviews.find(r => r.id === selected);
+            return review ? <img src={review.src} alt={review.alt} className="w-full rounded-lg" /> : null;
+          })()}
         </DialogContent>
       </Dialog>
 

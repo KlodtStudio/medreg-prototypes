@@ -4,7 +4,17 @@ import StatsBlock from "@/components/StatsBlock";
 import ExpertBlock from "@/components/ExpertBlock";
 import TrustLogos from "@/components/TrustLogos";
 import FinalCTAForm from "@/components/FinalCTAForm";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
+import letter1 from "@/assets/letters/letter-1.png";
+import letter2 from "@/assets/letters/letter-2.png";
+import letter3 from "@/assets/letters/letter-3.png";
+import letter4 from "@/assets/letters/letter-4.png";
+
+const letters = [
+  { src: letter1, alt: "Рекомендательное письмо Straumann" },
+  { src: letter2, alt: "Рекомендательное письмо Европа Медикал" },
+  { src: letter3, alt: "Рекомендательное письмо Aldent" },
+  { src: letter4, alt: "Рекомендательное письмо BOWA Medical" },
+];
 
 const AboutPage = () => (
   <Layout>
@@ -28,12 +38,12 @@ const AboutPage = () => (
     <ExpertBlock />
     <TrustLogos />
 
-    <section className="py-12">
+    <section className="py-16 bg-surface">
       <div className="container">
-        <h2 className="text-2xl font-semibold text-center mb-8">Рекомендательные письма</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Отзывы клиентов</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[1, 2, 3, 4].map((n) => (
-            <ImagePlaceholder key={n} label={`Рекомендательное письмо ${n}`} aspectRatio="3/4" />
+          {letters.map((l) => (
+            <img key={l.alt} src={l.src} alt={l.alt} className="rounded-lg border border-border w-full object-cover" style={{ aspectRatio: "3/4" }} />
           ))}
         </div>
       </div>
