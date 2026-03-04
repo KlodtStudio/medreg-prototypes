@@ -179,14 +179,22 @@ const Index = () => {
       {/* Why us */}
       <section className="py-16 bg-surface">
         <div className="container">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Почему выбирают нас</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Почему мы?</h2>
+          <div className="grid md:grid-cols-2 gap-6">
             {advantages.map((a) => (
               <div key={a.title} className="bg-background rounded-lg p-6 border border-border">
-                <h3 className="font-semibold mb-2">{a.title}</h3>
-                <p className="text-sm text-muted-foreground">{a.desc}</p>
+                <div className="text-3xl font-bold text-primary/20 mb-3">{a.num}</div>
+                <h3 className="font-semibold text-lg mb-3">{a.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{a.desc}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-10 bg-background border border-border rounded-lg p-8 text-center">
+            <p className="text-xl md:text-2xl font-semibold text-foreground">
+              <span className="text-primary text-3xl mr-2">"</span>
+              Наши ребята — часть вашей команды
+              <span className="text-primary text-3xl ml-2">"</span>
+            </p>
           </div>
         </div>
       </section>
