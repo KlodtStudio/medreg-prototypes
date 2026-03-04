@@ -1,7 +1,5 @@
 const clients = [
   "Straumann", "Zimmer", "Johnson & Johnson", "Bio-Rad", "Baxter",
-  "Клиент (производитель)", "Клиент (дистрибьютор)", "Клиент (стартап)",
-  "Клиент (фарма)", "Клиент (IT-мед)",
 ];
 
 const TrustLogos = () => (
