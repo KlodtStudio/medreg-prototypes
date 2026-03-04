@@ -118,6 +118,50 @@ const PricesPage = () => (
         ))}
       </div>
     </div>
+
+      {/* Payment options */}
+      <section className="py-12 bg-surface">
+        <div className="container max-w-3xl">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4">Способы оплаты</h2>
+          <p className="text-muted-foreground mb-8">
+            Мы предлагаем несколько гибких способов оплаты — выберите удобный под ваш проект.
+          </p>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold mb-2">Поэтапная постоплата</h3>
+              <p className="text-sm text-muted-foreground">
+                Оплата по факту выполнения отдельных этапов услуги. Рекомендуется для <Link to="/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/" className="text-primary hover:underline">регистрации «под ключ»</Link>. Оплата разбивается по согласованию на несколько этапов: от 3 до 8, в зависимости от объёма работ и сложности изделия.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-2">Аванс + промежуточный платёж + постоплата</h3>
+              <p className="text-sm text-muted-foreground">
+                Оплата по схеме: аванс, платёж за промежуточный результат, платёж по факту получения результата. Подходит для таких услуг, как <Link to="/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/" className="text-primary hover:underline">внесение изменений в РУ</Link>, сопровождение испытаний, <Link to="/uslugi/razrabotka-dokumentacii/tu/" className="text-primary hover:underline">разработка документации</Link>, <Link to="/uslugi/sertifikaciya/deklaraciya-tr-ts/" className="text-primary hover:underline">сертификация</Link> и т.д.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-2">100% предоплата</h3>
+              <p className="text-sm text-muted-foreground">
+                Применяется для быстрых и краткосрочных услуг: консультация, <Link to="/uslugi/registraciya-meditsinskih-izdeliy/eto-medizdelie-ili-net/" className="text-primary hover:underline">экспертное заключение</Link>, разработка отдельных документов, <Link to="/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/" className="text-primary hover:underline">внесение изменений в РУ</Link> и т.д.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-2">Фиксированный ежемесячный платёж</h3>
+              <p className="text-sm text-muted-foreground">
+                Применим для любой процедуры. Даёт возможность спланировать расходы заранее. График разрабатывается совместно с учётом продолжительности и объёма работ.
+              </p>
+            </div>
+          </div>
+
+          <p className="text-sm text-muted-foreground mt-8">
+            Для постоянных клиентов действуют индивидуальные условия, включая рассрочку и другие бонусы. Свяжитесь с нами — подберём подходящий вариант.
+          </p>
+        </div>
+      </section>
     <FinalCTAForm
       title="Нужна консультация по вашему медицинскому изделию?"
       subtitle="Опишите задачу и что уже готово — мы подскажем следующий шаг, список документов и сориентируем по срокам и стоимости."
