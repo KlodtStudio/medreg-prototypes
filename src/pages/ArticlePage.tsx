@@ -11,21 +11,28 @@ const ArticlePage = () => (
 
       <article className="max-w-3xl">
         <h1 className="text-3xl md:text-4xl font-bold mb-4">Как определить класс риска медицинского изделия</h1>
-        <div className="text-sm text-muted-foreground mb-8">Опубликовано: 15 января 2025</div>
+        <div className="text-sm text-muted-foreground mb-6">Опубликовано: 15 января 2025</div>
 
-        {/* TOC */}
-        <nav className="bg-surface rounded-lg p-4 mb-8">
-          <div className="font-semibold mb-2">Содержание</div>
-          <ul className="space-y-1 text-sm">
-            <li><a href="#what" className="text-primary hover:underline">Что такое класс риска</a></li>
-            <li><a href="#classes" className="text-primary hover:underline">Классификация в России</a></li>
-            <li><a href="#how" className="text-primary hover:underline">Как определить класс</a></li>
-            <li><a href="#examples" className="text-primary hover:underline">Примеры</a></li>
-            <li><a href="#mistakes" className="text-primary hover:underline">Частые ошибки</a></li>
-          </ul>
-        </nav>
+        <ImagePlaceholder label="Иллюстрация к статье" className="mb-6" />
 
-        <ImagePlaceholder label="Иллюстрация к статье" className="mb-8" />
+        {/* TOC as tag pills */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {[
+            { id: "what", label: "Что такое класс риска" },
+            { id: "classes", label: "Классификация в России" },
+            { id: "how", label: "Как определить класс" },
+            { id: "examples", label: "Примеры" },
+            { id: "mistakes", label: "Частые ошибки" },
+          ].map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className="px-4 py-2 rounded-full border border-border text-sm text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
 
         <div className="prose max-w-none space-y-6">
           <h2 id="what" className="text-2xl font-semibold">Что такое класс риска</h2>
