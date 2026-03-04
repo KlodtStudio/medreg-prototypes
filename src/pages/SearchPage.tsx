@@ -59,7 +59,6 @@ const SearchPage = () => {
   };
 
   const breadcrumbItems = [
-    { label: "Главная", to: "/" },
     { label: activeQuery ? `Вы искали «${activeQuery}»` : "Результаты поиска" },
   ];
 
