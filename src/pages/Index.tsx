@@ -81,9 +81,9 @@ const cases = [
 ];
 
 const articles = [
-  { title: "Как определить класс риска медицинского изделия", to: "/blog/kak-opredelit-klass-riska/" },
-  { title: "Что изменилось в порядке регистрации МИ в 2024 году", to: "/blog/" },
-  { title: "Частые ошибки при подаче документов на регистрацию", to: "/blog/" },
+  { title: "Как определить класс риска медицинского изделия", desc: "Разбираем критерии классификации медицинских изделий по степени риска и типичные ошибки производителей.", date: "12 февраля 2025", to: "/blog/kak-opredelit-klass-riska/" },
+  { title: "Что изменилось в порядке регистрации МИ в 2024 году", desc: "Обзор ключевых изменений законодательства, влияющих на процедуру регистрации медицинских изделий.", date: "28 января 2025", to: "/blog/" },
+  { title: "Частые ошибки при подаче документов на регистрацию", desc: "Анализируем наиболее распространённые причины отказов и задержек при подаче регистрационного досье.", date: "15 января 2025", to: "/blog/" },
 ];
 
 const Index = () => {
@@ -276,13 +276,22 @@ const Index = () => {
           <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Статьи</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {articles.map((a) => (
-              <Link key={a.title} to={a.to} className="block border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
-                <ImagePlaceholder label="Изображение статьи" className="rounded-none" />
-                <div className="p-4">
-                  <h3 className="font-semibold">{a.title}</h3>
+              <Link key={a.title} to={a.to} className="block border border-border rounded-lg overflow-hidden hover:shadow-md transition-shadow h-full flex flex-col">
+                <div className="h-48 flex-shrink-0">
+                  <ImagePlaceholder label="Изображение статьи" className="rounded-none h-full" />
+                </div>
+                <div className="p-4 flex flex-col flex-1">
+                  <span className="text-xs text-muted-foreground mb-2">{a.date}</span>
+                  <h3 className="font-semibold mb-2 line-clamp-2">{a.title}</h3>
+                  <p className="text-sm text-muted-foreground line-clamp-3">{a.desc}</p>
                 </div>
               </Link>
             ))}
+          </div>
+          <div className="flex justify-center mt-10">
+            <Button asChild variant="outline" size="lg">
+              <Link to="/blog/">Все статьи</Link>
+            </Button>
           </div>
         </div>
       </section>
