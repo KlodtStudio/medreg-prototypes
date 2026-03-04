@@ -208,6 +208,18 @@ const Index = () => {
 
       <TrustLogos />
 
+      {/* Recommendation letters */}
+      <section className="py-16 bg-surface">
+        <div className="container">
+          <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Отзывы клиентов</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {letters.map((l) => (
+              <img key={l.alt} src={l.src} alt={l.alt} className="rounded-lg border border-border w-full object-cover" style={{ aspectRatio: "3/4" }} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <StatsBlock />
 
       {/* Cases */}
@@ -224,18 +236,6 @@ const Index = () => {
                 <div className="text-xs text-muted-foreground uppercase mb-2">Результат</div>
                 <p className="text-sm font-semibold text-primary">{c.result}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Recommendation letters */}
-      <section className="py-16 bg-surface">
-        <div className="container">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Отзывы клиентов</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {letters.map((l) => (
-              <img key={l.alt} src={l.src} alt={l.alt} className="rounded-lg border border-border w-full object-cover" style={{ aspectRatio: "3/4" }} />
             ))}
           </div>
         </div>
