@@ -60,6 +60,7 @@ const Footer = () => (
               </button>
             } />
           </div>
+        </div>
       </div>
       <div className="mt-10 pt-6 border-t border-primary-foreground/20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-60">
         <div>© {new Date().getFullYear()} RegMT. Все права защищены.</div>
