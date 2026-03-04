@@ -30,7 +30,10 @@ const ContactsPage = () => (
         <ImagePlaceholder label="Карта (плейсхолдер)" className="min-h-[300px]" />
       </div>
     </div>
-    <FinalCTAForm />
+    <FinalCTAForm
+      title="Нужна консультация по вашему медицинскому изделию?"
+      subtitle="Опишите задачу и что уже готово — мы подскажем следующий шаг, список документов и сориентируем по срокам и стоимости."
+    />
   </Layout>
 );
 
