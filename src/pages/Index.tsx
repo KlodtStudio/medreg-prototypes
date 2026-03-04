@@ -246,9 +246,11 @@ const Index = () => {
         </div>
       </section>
 
-      <StatsBlock />
+      {/* HIDDEN: StatsBlock — чтобы вернуть, раскомментируйте */}
+      {/* <StatsBlock /> */}
 
-      {/* Cases */}
+      {/* HIDDEN: Cases — чтобы вернуть, раскомментируйте */}
+      {/*
       <section className="py-16">
         <div className="container">
           <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Кейсы</h2>
@@ -266,6 +268,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      */}
 
       {/* Articles */}
       <section className="py-16">
