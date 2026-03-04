@@ -6,6 +6,7 @@ import Layout from "@/components/Layout";
 import TrustLogos from "@/components/TrustLogos";
 import StatsBlock from "@/components/StatsBlock";
 import FinalCTAForm from "@/components/FinalCTAForm";
+import { allArticles } from "@/lib/articlesData";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 import letter1 from "@/assets/letters/letter-1.png";
 import letter2 from "@/assets/letters/letter-2.png";
@@ -80,11 +81,7 @@ const cases = [
   { task: "Определение статуса продукта: медизделие или нет", done: "Провели анализ, подготовили заключение с обоснованием", result: "Заключение за 5 рабочих дней" },
 ];
 
-const articles = [
-  { title: "Как определить класс риска медицинского изделия", desc: "Разбираем критерии классификации медицинских изделий по степени риска и типичные ошибки производителей.", date: "12 февраля 2025", to: "/blog/kak-opredelit-klass-riska/" },
-  { title: "Что изменилось в порядке регистрации МИ в 2024 году", desc: "Обзор ключевых изменений законодательства, влияющих на процедуру регистрации медицинских изделий.", date: "28 января 2025", to: "/blog/" },
-  { title: "Частые ошибки при подаче документов на регистрацию", desc: "Анализируем наиболее распространённые причины отказов и задержек при подаче регистрационного досье.", date: "15 января 2025", to: "/blog/" },
-];
+const articles = allArticles.slice(0, 3);
 
 const Index = () => {
   const [slide, setSlide] = useState(0);
