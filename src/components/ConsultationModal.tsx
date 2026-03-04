@@ -2,20 +2,23 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Link } from "react-router-dom";
 
 const ConsultationModal = ({ trigger }: { trigger?: React.ReactNode }) => {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [agreed, setAgreed] = useState(false);
 
   return (
-    <Dialog open={open} onOpenChange={(v) => { setOpen(v); if (!v) setSubmitted(false); }}>
+    <Dialog open={open} onOpenChange={(v) => { setOpen(v); if (!v) { setSubmitted(false); setAgreed(false); } }}>
       <DialogTrigger asChild>
         {trigger || <Button>Консультация</Button>}
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Консультация</DialogTitle>
+          <DialogTitle className="text-2xl font-bold text-center uppercase">Закажите консультацию</DialogTitle>
+          <p className="text-center text-muted-foreground">Наш менеджер свяжется с Вами.</p>
         </DialogHeader>
         {submitted ? (
           <div className="text-center py-6">
@@ -23,13 +26,39 @@ const ConsultationModal = ({ trigger }: { trigger?: React.ReactNode }) => {
             <p className="text-muted-foreground">Мы свяжемся с вами в ближайшее время.</p>
           </div>
         ) : (
-          <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
-            <Input placeholder="Имя" />
-            <Input placeholder="Телефон *" required />
-            <Textarea placeholder="Коротко опишите изделие" rows={3} />
-            <div className="text-sm text-muted-foreground">Файл (опционально): <input type="file" className="ml-2" /></div>
-            <Button type="submit" className="w-full">Отправить</Button>
-            <p className="text-xs text-muted-foreground text-center">Без рассылок и рекламы.</p>
+          <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); if (agreed) setSubmitted(true); }}>
+            <Input placeholder="Ваше имя" className="rounded-full h-12" />
+            <Input placeholder="Ваш телефон" required className="rounded-full h-12" />
+            <div className="text-sm text-muted-foreground text-center">
+              <p>Есть документация на изделие?</p>
+              <p className="mb-1">Добавьте файл</p>
+              <input type="file" className="text-sm" />
+            </div>
+            <Button
+              type="submit"
+              disabled={!agreed}
+              className="w-full h-12 rounded-full text-base font-semibold bg-[#4CAF50] hover:bg-[#43A047] text-white"
+            >
+              Заказать консультацию
+            </Button>
+            <div className="flex items-start gap-2">
+              <Checkbox
+                id="consent"
+                checked={agreed}
+                onCheckedChange={(v) => setAgreed(v === true)}
+                className="mt-0.5"
+              />
+              <label htmlFor="consent" className="text-xs text-muted-foreground leading-tight cursor-pointer">
+                Нажимая кнопку «Заказать», я даю своё согласие на обработку моих персональных данных в соответствии с{" "}
+                <Link
+                  to="/privacy-policy"
+                  className="underline text-primary hover:text-primary/80"
+                  onClick={() => setOpen(false)}
+                >
+                  Политикой конфиденциальности
+                </Link>.
+              </label>
+            </div>
           </form>
         )}
       </DialogContent>
