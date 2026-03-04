@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import StatsBlock from "@/components/StatsBlock";
 import ExpertBlock from "@/components/ExpertBlock";
 import TrustLogos from "@/components/TrustLogos";
 import FinalCTAForm from "@/components/FinalCTAForm";
+import { Button } from "@/components/ui/button";
 import letter1 from "@/assets/letters/letter-1.png";
 import letter2 from "@/assets/letters/letter-2.png";
 import letter3 from "@/assets/letters/letter-3.png";
@@ -14,6 +16,15 @@ const letters = [
   { src: letter2, alt: "Рекомендательное письмо Европа Медикал" },
   { src: letter3, alt: "Рекомендательное письмо Aldent" },
   { src: letter4, alt: "Рекомендательное письмо BOWA Medical" },
+];
+
+const services = [
+  { title: "Регистрация «под ключ»", desc: "Полный цикл регистрации медицинского изделия — от подготовки документации до получения регистрационного удостоверения.", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/" },
+  { title: "Клинические испытания", desc: "Организация и сопровождение клинических испытаний медицинских изделий в аккредитованных центрах.", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/klinicheskie/" },
+  { title: "Изменения в РУ", desc: "Подготовка и подача документов для внесения изменений в действующее регистрационное удостоверение.", to: "/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/" },
+  { title: "Разработка ТУ", desc: "Разработка технических условий и нормативной документации для медицинских изделий.", to: "/uslugi/razrabotka-dokumentacii/tu/" },
+  { title: "Сертификация", desc: "Оформление деклараций и сертификатов соответствия требованиям технических регламентов.", to: "/uslugi/sertifikaciya/" },
+  { title: "Аудит СМК", desc: "Проверка системы менеджмента качества на соответствие требованиям стандартов и подготовка к сертификации.", to: "/uslugi/smk/audit/" },
 ];
 
 const AboutPage = () => (
@@ -34,7 +45,30 @@ const AboutPage = () => (
       </div>
     </div>
 
-    <StatsBlock title="Цифры" />
+    {/* Services */}
+    <section className="py-16">
+      <div className="container">
+        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">Наши услуги</h2>
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((s) => (
+            <div key={s.to} className="border border-border rounded-lg p-6 bg-background flex flex-col">
+              <h3 className="font-semibold text-lg mb-2">{s.title}</h3>
+              <p className="text-sm text-muted-foreground mb-4 flex-1">{s.desc}</p>
+              <Button asChild variant="default" className="w-fit">
+                <Link to={s.to}>Подробнее</Link>
+              </Button>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center mt-10">
+          <Button asChild variant="outline" size="lg">
+            <Link to="/uslugi/">Все услуги</Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <StatsBlock title="Преимущества" />
     <ExpertBlock />
     <TrustLogos />
 
