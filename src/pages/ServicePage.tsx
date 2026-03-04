@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FinalCTAForm from "@/components/FinalCTAForm";
@@ -492,16 +494,7 @@ const ServicePage = () => {
         </div>
 
         {/* Related services */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Другие услуги</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {relatedServices.filter((s) => !s.to.includes(service || "")).slice(0, 4).map((s) => (
-              <Link key={s.to} to={s.to} className="border border-border rounded-lg p-4 hover:shadow-md transition-shadow">
-                <h3 className="font-medium text-sm">{s.title}</h3>
-              </Link>
-            ))}
-          </div>
-        </div>
+        <RelatedServicesBlock currentService={service || ""} />
       </div>
 
       <FinalCTAForm />
