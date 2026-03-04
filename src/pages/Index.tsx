@@ -32,12 +32,12 @@ const slides = [
 ];
 
 const services = [
-  { title: "Регистрация «под ключ»", price: "от 750 000 ₽", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/" },
-  { title: "Клинические испытания", price: "от 40 000 ₽", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/klinicheskie/" },
-  { title: "Изменения в РУ", price: "от 60 000 ₽", to: "/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/" },
-  { title: "Разработка ТУ", price: "от 40 000 ₽", to: "/uslugi/razrabotka-dokumentacii/tu/" },
-  { title: "Сертификация", price: "от 150 000 ₽", to: "/uslugi/sertifikaciya/" },
-  { title: "Аудит СМК", price: "Цена по запросу", to: "/uslugi/smk/audit/" },
+  { title: "Регистрация «под ключ»", desc: "Полный цикл регистрации медицинского изделия — от подготовки документации до получения регистрационного удостоверения.", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/" },
+  { title: "Клинические испытания", desc: "Организация и сопровождение клинических испытаний медицинских изделий в аккредитованных центрах.", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/klinicheskie/" },
+  { title: "Изменения в РУ", desc: "Подготовка и подача документов для внесения изменений в действующее регистрационное удостоверение.", to: "/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/" },
+  { title: "Разработка ТУ", desc: "Разработка технических условий и нормативной документации для медицинских изделий.", to: "/uslugi/razrabotka-dokumentacii/tu/" },
+  { title: "Сертификация", desc: "Оформление деклараций и сертификатов соответствия требованиям технических регламентов.", to: "/uslugi/sertifikaciya/" },
+  { title: "Аудит СМК", desc: "Проверка системы менеджмента качества на соответствие требованиям стандартов и подготовка к сертификации.", to: "/uslugi/smk/audit/" },
 ];
 
 const advantages = [
