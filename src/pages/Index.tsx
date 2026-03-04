@@ -7,6 +7,17 @@ import TrustLogos from "@/components/TrustLogos";
 import StatsBlock from "@/components/StatsBlock";
 import FinalCTAForm from "@/components/FinalCTAForm";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
+import letter1 from "@/assets/letters/letter-1.png";
+import letter2 from "@/assets/letters/letter-2.png";
+import letter3 from "@/assets/letters/letter-3.png";
+import letter4 from "@/assets/letters/letter-4.png";
+
+const letters = [
+  { src: letter1, alt: "Рекомендательное письмо Straumann" },
+  { src: letter2, alt: "Рекомендательное письмо Европа Медикал" },
+  { src: letter3, alt: "Рекомендательное письмо Aldent" },
+  { src: letter4, alt: "Рекомендательное письмо BOWA Medical" },
+];
 
 const slides = [
   {
