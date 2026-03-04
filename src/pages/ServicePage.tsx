@@ -318,10 +318,12 @@ const servicesData: Record<string, ServiceData> = {
 };
 
 const relatedServices = [
-  { title: "Регистрация «под ключ»", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/" },
-  { title: "Клинические испытания", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/klinicheskie/" },
-  { title: "Разработка ТУ", to: "/uslugi/razrabotka-dokumentacii/tu/" },
-  { title: "Сертификация", to: "/uslugi/sertifikaciya/deklaraciya-tr-ts/" },
+  { title: "Регистрация «под ключ»", desc: "Полный цикл регистрации медицинского изделия — от подготовки документации до получения регистрационного удостоверения.", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/" },
+  { title: "Клинические испытания", desc: "Организация и сопровождение клинических испытаний медицинских изделий в аккредитованных центрах.", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/klinicheskie/" },
+  { title: "Разработка ТУ", desc: "Разработка технических условий и нормативной документации для медицинских изделий.", to: "/uslugi/razrabotka-dokumentacii/tu/" },
+  { title: "Сертификация", desc: "Оформление деклараций и сертификатов соответствия требованиям технических регламентов.", to: "/uslugi/sertifikaciya/deklaraciya-tr-ts/" },
+  { title: "Изменения в РУ", desc: "Подготовка и подача документов для внесения изменений в действующее регистрационное удостоверение.", to: "/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/" },
+  { title: "Аудит СМК", desc: "Проверка системы менеджмента качества на соответствие требованиям стандартов.", to: "/uslugi/smk/audit/" },
 ];
 
 const ServicePage = () => {
