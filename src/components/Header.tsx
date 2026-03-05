@@ -125,7 +125,7 @@ const Header = () => {
             <div>+7 (495) 181-75-05</div>
             <div>contact@regmt.ru</div>
           </div>
-          <ConsultationModal />
+          <ConsultationModal trigger={<Button size="sm">Консультация</Button>} />
           <SearchDropdown />
         </div>
 
