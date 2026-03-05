@@ -5,16 +5,17 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Link } from "react-router-dom";
 
-const ConsultationModal = ({ trigger }: { trigger?: React.ReactNode }) => {
-  const [open, setOpen] = useState(false);
+const ConsultationModal = ({ trigger, open: controlledOpen, onOpenChange }: { trigger?: React.ReactNode; open?: boolean; onOpenChange?: (open: boolean) => void }) => {
+  const [internalOpen, setInternalOpen] = useState(false);
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : internalOpen;
+  const setOpen = (v: boolean) => { if (isControlled) { onOpenChange?.(v); } else { setInternalOpen(v); } };
   const [submitted, setSubmitted] = useState(false);
   const [agreed, setAgreed] = useState(false);
 
   return (
     <Dialog open={open} onOpenChange={(v) => { setOpen(v); if (!v) { setSubmitted(false); setAgreed(false); } }}>
-      <DialogTrigger asChild>
-        {trigger || <Button>Консультация</Button>}
-      </DialogTrigger>
+      {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
       <DialogContent className="sm:max-w-md p-8">
         <DialogHeader className="mb-2">
           <DialogTitle className="text-2xl font-bold text-center uppercase">Закажите консультацию</DialogTitle>

@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ConsultationModal from "@/components/ConsultationModal";
 import Layout from "@/components/Layout";
 import TrustLogos from "@/components/TrustLogos";
 import StatsBlock from "@/components/StatsBlock";
@@ -22,8 +23,8 @@ const letters = [
 
 const slides = [
   {
-    title: "Регистрация медицинских изделий «под ключ»",
-    text: "Доведём проект до получения РУ. Начинаем с прогноза сроков и рисков по вашему изделию.",
+    title: "Регистрация медицинских изделий в РФ «под ключ» — с прозрачным планом, сроками и управлением рисками",
+    text: "Берём сложные проекты 2б/3 класса риска, ведём через испытания/экспертизу и доводим до РУ. 98% проектов — без отказа",
     to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/",
   },
   {
@@ -85,33 +86,36 @@ const articles = allArticles.slice(0, 3);
 
 const IndexV2 = () => {
   const [slide, setSlide] = useState(0);
-
-  const nextSlide = useCallback(() => {
-    setSlide((s) => (s + 1) % slides.length);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(nextSlide, 10000);
-    return () => clearInterval(timer);
-  }, [nextSlide]);
+  const [consultationOpen, setConsultationOpen] = useState(false);
 
   return (
     <Layout>
+      <ConsultationModal open={consultationOpen} onOpenChange={setConsultationOpen} />
       {/* Hero Slider */}
       <section className="relative bg-surface">
         <div className="container py-16 md:py-24">
-          <div className="max-w-2xl min-h-[200px] md:min-h-[220px]">
+          <div className="max-w-3xl min-h-[200px] md:min-h-[260px]">
             <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">{slides[slide].title}</h1>
             <p className="text-lg text-muted-foreground mb-6">{slides[slide].text}</p>
             <div className="flex flex-wrap gap-3">
-              <Button asChild><Link to={slides[slide].to}>Подробнее</Link></Button>
-              {slide === 0 && (
-                <Button variant="outline" onClick={() => document.getElementById("final-form")?.scrollIntoView({ behavior: "smooth" })}>
-                  Получить прогноз
-                </Button>
+              {slide === 0 ? (
+                <>
+                  <Button onClick={() => document.getElementById("final-form")?.scrollIntoView({ behavior: "smooth" })}>
+                    Получить дорожную карту и оценку рисков
+                  </Button>
+                  <Button variant="outline" onClick={() => setConsultationOpen(true)}>
+                    Запросить КП / смету по этапам
+                  </Button>
+                </>
+              ) : (
+                <Button asChild><Link to={slides[slide].to}>Подробнее</Link></Button>
               )}
             </div>
-            
+            {slide === 0 && (
+              <p className="text-sm text-muted-foreground mt-5">
+                11 лет на рынке • 150 проектов в работе • средний срок РУ в 2025 — 11 мес (по статистике проектов)
+              </p>
+            )}
           </div>
           <div className="flex items-center gap-3 mt-8">
             <button onClick={() => setSlide((s) => (s - 1 + slides.length) % slides.length)} className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-surface transition-colors">
