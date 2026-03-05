@@ -185,6 +185,8 @@ const IndexV2 = () => {
         </div>
       </section>
 
+      <QuizRouter />
+
       {/* Why us */}
       <section className="py-16 bg-surface">
         <div className="container">
