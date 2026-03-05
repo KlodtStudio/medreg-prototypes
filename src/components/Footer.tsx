@@ -64,9 +64,9 @@ const Footer = () => (
         <div className="col-span-2 md:col-span-1">
           <div className="font-semibold mb-3">Наши контакты</div>
           <div className="text-sm opacity-80 space-y-3">
-            <div>+7 (XXX) XXX-XX-XX</div>
-            <div>г. Москва, ул. Примерная, д. 1</div>
-            <div>info@regmt.ru</div>
+            <div>+7 (495) 181-75-05</div>
+            <div>115114, г. Москва, Дербеневская наб., д. 7, стр. 17</div>
+            <div>contact@regmt.ru</div>
             <div>Пн. – Пт.: с 9:00 до 18:00</div>
           </div>
           <div className="mt-5">
