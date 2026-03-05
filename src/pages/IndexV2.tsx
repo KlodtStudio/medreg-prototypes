@@ -83,7 +83,7 @@ const cases = [
 
 const articles = allArticles.slice(0, 3);
 
-const Index = () => {
+const IndexV2 = () => {
   const [slide, setSlide] = useState(0);
 
   const nextSlide = useCallback(() => {
@@ -298,4 +298,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default IndexV2;

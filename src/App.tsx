@@ -16,6 +16,7 @@ import ContactsPage from "./pages/ContactsPage";
 import BlogPage from "./pages/BlogPage";
 import ArticlePage from "./pages/ArticlePage";
 import SearchPage from "./pages/SearchPage";
+import IndexV2 from "./pages/IndexV2";
 import { PrivacyPolicy, UserAgreement, PersonalDataConsent, Offer } from "./pages/LegalPages";
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/blog/" element={<BlogPage />} />
           <Route path="/blog/kak-opredelit-klass-riska/" element={<ArticlePage />} />
           <Route path="/search/" element={<SearchPage />} />
+          <Route path="/mainv2/" element={<IndexV2 />} />
           <Route path="/privacy-policy/" element={<PrivacyPolicy />} />
           <Route path="/user-agreement/" element={<UserAgreement />} />
           <Route path="/personal-data-consent/" element={<PersonalDataConsent />} />
