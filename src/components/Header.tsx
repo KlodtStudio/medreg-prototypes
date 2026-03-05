@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Search, ChevronDown, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import ConsultationModal from "./ConsultationModal";
 import SearchDropdown from "./SearchDropdown";
 
@@ -125,7 +126,7 @@ const Header = () => {
             <div>+7 (495) 181-75-05</div>
             <div>contact@regmt.ru</div>
           </div>
-          <ConsultationModal />
+          <ConsultationModal trigger={<Button size="sm">Консультация</Button>} />
           <SearchDropdown />
         </div>
 
