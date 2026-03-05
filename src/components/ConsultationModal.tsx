@@ -16,7 +16,6 @@ const ConsultationModal = ({ trigger, open: controlledOpen, onOpenChange }: { tr
   return (
     <Dialog open={open} onOpenChange={(v) => { setOpen(v); if (!v) { setSubmitted(false); setAgreed(false); } }}>
       {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
-      </DialogTrigger>
       <DialogContent className="sm:max-w-md p-8">
         <DialogHeader className="mb-2">
           <DialogTitle className="text-2xl font-bold text-center uppercase">Закажите консультацию</DialogTitle>
