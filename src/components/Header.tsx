@@ -122,8 +122,8 @@ const Header = () => {
         {/* Desktop right */}
         <div className="hidden lg:flex items-center gap-4 text-sm shrink-0">
           <div className="text-muted-foreground">
-            <div>+7 (XXX) XXX-XX-XX</div>
-            <div>info@regmt.ru</div>
+            <div>+7 (495) 181-75-05</div>
+            <div>contact@regmt.ru</div>
           </div>
           <ConsultationModal />
           <SearchDropdown />
@@ -177,8 +177,8 @@ const Header = () => {
               <Link key={item.to} to={item.to} className="block py-2" onClick={() => setMobileOpen(false)}>{item.label}</Link>
             ))}
             <div className="pt-4 border-t border-border space-y-1 text-muted-foreground">
-              <div>+7 (XXX) XXX-XX-XX</div>
-              <div>info@regmt.ru</div>
+              <div>+7 (495) 181-75-05</div>
+              <div>contact@regmt.ru</div>
             </div>
             <div className="pt-2">
               <ConsultationModal />

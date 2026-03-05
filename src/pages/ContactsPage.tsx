@@ -12,15 +12,15 @@ const ContactsPage = () => (
         <div className="space-y-4">
           <div>
             <div className="text-sm text-muted-foreground mb-1">Телефон</div>
-            <div className="font-medium">+7 (XXX) XXX-XX-XX</div>
+            <div className="font-medium">+7 (495) 181-75-05</div>
           </div>
           <div>
             <div className="text-sm text-muted-foreground mb-1">Email</div>
-            <div className="font-medium">info@regmt.ru</div>
+            <div className="font-medium">contact@regmt.ru</div>
           </div>
           <div>
             <div className="text-sm text-muted-foreground mb-1">Адрес</div>
-            <div className="font-medium">г. Москва, ул. Примерная, д. 1, офис 100</div>
+            <div className="font-medium">115114, г. Москва, Дербеневская наб., д. 7, стр. 17</div>
           </div>
           <div>
             <div className="text-sm text-muted-foreground mb-1">Режим работы</div>
