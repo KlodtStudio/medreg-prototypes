@@ -9,6 +9,7 @@ import StatsBlock from "@/components/StatsBlock";
 import FinalCTAForm from "@/components/FinalCTAForm";
 import { allArticles } from "@/lib/articlesData";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
+import QuizRouter from "@/components/QuizRouter";
 import letter1 from "@/assets/letters/letter-1.png";
 import letter2 from "@/assets/letters/letter-2.png";
 import letter3 from "@/assets/letters/letter-3.png";
