@@ -196,7 +196,7 @@ const Index = () => {
           <div className="mt-10 bg-background border border-border rounded-lg p-8 text-center">
             <p className="text-xl md:text-2xl font-semibold text-foreground">
               <span className="text-primary text-3xl mr-2">"</span>
-              Наши ребята — часть вашей команды
+              Наши специалисты — часть вашей команды
               <span className="text-primary text-3xl ml-2">"</span>
             </p>
           </div>
