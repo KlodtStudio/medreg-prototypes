@@ -4,57 +4,7 @@ import { Menu, X, Search, ChevronDown, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ConsultationModal from "./ConsultationModal";
 import SearchDropdown from "./SearchDropdown";
-
-const serviceCategories = [
-  {
-    label: "Регистрация медицинских изделий",
-    to: "/uslugi/registraciya-meditsinskih-izdeliy/",
-    children: [
-      { label: "Регистрация «под ключ»", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/" },
-      { label: "Изменения в РУ", to: "/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/" },
-      { label: "Это медизделие или нет?", to: "/uslugi/registraciya-meditsinskih-izdeliy/eto-medizdelie-ili-net/" },
-    ],
-  },
-  {
-    label: "Испытания медицинских изделий",
-    to: "/uslugi/ispytaniya-meditsinskih-izdeliy/",
-    children: [
-      { label: "Клинические испытания", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/klinicheskie/" },
-      { label: "Технические испытания", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/tehnicheskie/" },
-      { label: "ЭМС-испытания", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/ems/" },
-    ],
-  },
-  {
-    label: "Разработка документации",
-    to: "/uslugi/razrabotka-dokumentacii/",
-    children: [
-      { label: "Разработка ТУ", to: "/uslugi/razrabotka-dokumentacii/tu/" },
-      { label: "Риск-менеджмент", to: "/uslugi/razrabotka-dokumentacii/risk-management/" },
-    ],
-  },
-  {
-    label: "Сертификация",
-    to: "/uslugi/sertifikaciya/",
-    children: [
-      { label: "Декларация ТР ТС", to: "/uslugi/sertifikaciya/deklaraciya-tr-ts/" },
-      { label: "Сертификат ТР ТС", to: "/uslugi/sertifikaciya/sertifikat-tr-ts/" },
-    ],
-  },
-  {
-    label: "Лицензирование",
-    to: "/uslugi/licenzirovanie/",
-    children: [
-      { label: "Лицензия на производство", to: "/uslugi/licenzirovanie/proizvodstvo/" },
-    ],
-  },
-  {
-    label: "СМК",
-    to: "/uslugi/smk/",
-    children: [
-      { label: "Аудит СМК", to: "/uslugi/smk/audit/" },
-    ],
-  },
-];
+import { serviceCategories } from "@/lib/serviceCategories";
 
 const mainMenu = [
   { label: "Цены", to: "/ceny/" },

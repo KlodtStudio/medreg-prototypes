@@ -12,7 +12,7 @@ interface FinalCTAFormProps {
 
 const FinalCTAForm = ({
   title = "Нужен прогноз по срокам и рискам именно по вашему изделию?",
-  subtitle = "Оставьте заявку. Разберём ваш кейс и предложим рабочий маршрут без лишних итераций.",
+  subtitle = "Оставьте заявку. Разберём ваш кейс и предложим рабочий маршрут.",
 }: FinalCTAFormProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [agreed, setAgreed] = useState(false);

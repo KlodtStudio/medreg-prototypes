@@ -8,10 +8,10 @@ import { cn } from "@/lib/utils";
 
 const steps = [
   {
-    question: "Класс риска известен?",
-    hint: "Если класс риска неизвестен — ничего страшного, уточним на консультации.",
+    question: "Определились с классом риска?",
+    hint: "Если класс риска пока не определён — ничего страшного, уточним на консультации.",
     options: [
-      "Да, известен",
+      "Да, определились",
       "Нет, не уверен(а)",
       "Нужно определить (помогите разобраться)",
     ],
@@ -21,16 +21,16 @@ const steps = [
     options: [
       "Россия",
       "Иностранный производитель",
-      "Затрудняюсь ответить",
+      "Ещё не определились",
     ],
   },
   {
     question: "Что нужно сейчас?",
     options: [
       "Регистрация «под ключ»",
-      "Изменения в РУ",
+      "Внесение изменений в РУ",
       "Организация испытаний",
-      "Понять, является ли изделие медицинским",
+      "Подлежит ли изделие регистрации",
       "Другая задача / другая услуга",
     ],
   },
@@ -180,7 +180,7 @@ const QuizRouter = () => {
           {/* Contact step */}
           {isQuizDone && (
             <div>
-              <h3 className="text-lg font-semibold mb-5">Куда отправить ответ по вашему кейсу?</h3>
+              <h3 className="text-lg font-semibold mb-5">Куда отправить ответ по вашему изделию?</h3>
 
               <div className="grid gap-4">
                 <div>
@@ -194,10 +194,10 @@ const QuizRouter = () => {
 
                 <div>
                   <label className="text-sm text-muted-foreground mb-1 block">
-                    Телефон или Telegram <span className="text-destructive">*</span>
+                    Телефон <span className="text-destructive">*</span>
                   </label>
                   <Input
-                    placeholder="+7… или @username"
+                    placeholder="+7…"
                     value={contactForm.contact}
                     onChange={(e) => setContactForm((f) => ({ ...f, contact: e.target.value }))}
                   />
