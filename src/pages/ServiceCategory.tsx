@@ -22,6 +22,7 @@ const categoriesData: Record<string, CategoryData> = {
       { label: "Внесение изменений в РУ", to: "/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/", price: "от 60 000 ₽" },
       { label: "Подлежит ли изделие регистрации", to: "/uslugi/registraciya-meditsinskih-izdeliy/podlezhit-li-registracii/", price: "от 35 000 ₽" },
       { label: "Ускоренная регистрация", to: "/uslugi/registraciya-meditsinskih-izdeliy/uskorennaya/", price: "Цена по запросу" },
+      { label: "Регистрация по ЕАЭС", to: "/uslugi/registraciya-meditsinskih-izdeliy/eaes/", price: "Цена по запросу" },
     ],
     faq: [
       { q: "Сколько длится регистрация?", a: "В среднем 11 месяцев, зависит от класса риска и комплектности документов." },
@@ -32,7 +33,7 @@ const categoriesData: Record<string, CategoryData> = {
     ],
   },
   "vysokotehnologichnye": {
-    title: "Высокотехнологичные медицинские изделия",
+    title: "Регистрация различных видов медицинских изделий",
     description: "Регистрация сложных медицинских изделий: изделий для инвитродиагностики и медицинского программного обеспечения. Сопровождаем проекты с учётом специфики высокотехнологичной продукции.",
     services: [
       { label: "Регистрация изделий для инвитродиагностики", to: "/uslugi/vysokotehnologichnye/ivd/", price: "Цена по запросу" },
