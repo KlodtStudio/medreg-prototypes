@@ -21,15 +21,7 @@ export const serviceCategories: ServiceCategory[] = [
       { label: "Регистрация по ЕАЭС", to: "/uslugi/registraciya-meditsinskih-izdeliy/eaes/" },
       { label: "Регистрация изделий для инвитродиагностики", to: "/uslugi/registraciya-meditsinskih-izdeliy/ivd/" },
       { label: "Регистрация медицинского ПО", to: "/uslugi/registraciya-meditsinskih-izdeliy/medicinskoe-po/" },
-      { label: "Сертификация медицинских изделий", to: "/uslugi/registraciya-meditsinskih-izdeliy/sertifikaciya/" },
-      { label: "Декларация соответствия ТР ТС", to: "/uslugi/registraciya-meditsinskih-izdeliy/deklaraciya-tr-ts/" },
-      { label: "Сертификат соответствия ТР ТС", to: "/uslugi/registraciya-meditsinskih-izdeliy/sertifikat-tr-ts/" },
     ],
-  },
-  {
-    label: "Регистрация различных видов медицинских изделий",
-    to: "/uslugi/vysokotehnologichnye/",
-    children: [],
   },
   {
     label: "Испытания медицинских изделий",

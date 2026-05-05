@@ -30,9 +30,6 @@ const categoriesData: Record<string, CategoryData> = {
       { label: "Регистрация по ЕАЭС", to: "/uslugi/registraciya-meditsinskih-izdeliy/eaes/", price: "Цена по запросу" },
       { label: "Регистрация изделий для инвитродиагностики", to: "/uslugi/registraciya-meditsinskih-izdeliy/ivd/", price: "от 90 000 ₽" },
       { label: "Регистрация медицинского ПО", to: "/uslugi/registraciya-meditsinskih-izdeliy/medicinskoe-po/", price: "от 80 000 ₽" },
-      { label: "Сертификация медицинских изделий", to: "/uslugi/registraciya-meditsinskih-izdeliy/sertifikaciya/", price: "от 45 000 ₽" },
-      { label: "Декларация соответствия ТР ТС", to: "/uslugi/registraciya-meditsinskih-izdeliy/deklaraciya-tr-ts/", price: "от 18 000 ₽" },
-      { label: "Сертификат соответствия ТР ТС", to: "/uslugi/registraciya-meditsinskih-izdeliy/sertifikat-tr-ts/", price: "от 45 000 ₽" },
     ],
     faq: [
       { q: "Сколько длится регистрация?", a: "В среднем 11 месяцев, зависит от класса риска и комплектности документов." },
