@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import StatsBlock from "@/components/StatsBlock";
@@ -8,6 +9,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 interface CategoryData {
   title: string;
+  metaTitle: string;
+  metaDescription: string;
   description: string;
   services: { label: string; to: string; price?: string }[];
   faq: { q: string; a: string }[];
@@ -15,7 +18,9 @@ interface CategoryData {
 
 const categoriesData: Record<string, CategoryData> = {
   "registraciya-meditsinskih-izdeliy": {
-    title: "Регистрация медицинских изделий",
+    title: "Регистрация медицинских изделий в Росздравнадзоре",
+    metaTitle: "Регистрация медицинских изделий — получение регистрационного удостоверения Росздравнадзора под ключ",
+    metaDescription: "Регистрация медицинских изделий и получение регистрационного удостоверения (РУ) в Росздравнадзоре под ключ. Подготовка документации, организация испытаний, сопровождение процедуры. Работаем по всей России.",
     description: "Полный цикл регистрации: от прогноза сроков до получения регистрационного удостоверения. Подходит производителям и дистрибьюторам отечественных и зарубежных медицинских изделий любого класса риска.",
     services: [
       { label: "Регистрация «под ключ»", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/", price: "от 750 000 ₽" },
@@ -23,6 +28,11 @@ const categoriesData: Record<string, CategoryData> = {
       { label: "Подлежит ли изделие регистрации", to: "/uslugi/registraciya-meditsinskih-izdeliy/podlezhit-li-registracii/", price: "от 35 000 ₽" },
       { label: "Ускоренная регистрация", to: "/uslugi/registraciya-meditsinskih-izdeliy/uskorennaya/", price: "Цена по запросу" },
       { label: "Регистрация по ЕАЭС", to: "/uslugi/registraciya-meditsinskih-izdeliy/eaes/", price: "Цена по запросу" },
+      { label: "Регистрация изделий для инвитродиагностики", to: "/uslugi/registraciya-meditsinskih-izdeliy/ivd/", price: "от 90 000 ₽" },
+      { label: "Регистрация медицинского ПО", to: "/uslugi/registraciya-meditsinskih-izdeliy/medicinskoe-po/", price: "от 80 000 ₽" },
+      { label: "Сертификация медицинских изделий", to: "/uslugi/registraciya-meditsinskih-izdeliy/sertifikaciya/", price: "от 45 000 ₽" },
+      { label: "Декларация соответствия ТР ТС", to: "/uslugi/registraciya-meditsinskih-izdeliy/deklaraciya-tr-ts/", price: "от 18 000 ₽" },
+      { label: "Сертификат соответствия ТР ТС", to: "/uslugi/registraciya-meditsinskih-izdeliy/sertifikat-tr-ts/", price: "от 45 000 ₽" },
     ],
     faq: [
       { q: "Сколько длится регистрация?", a: "В среднем 11 месяцев, зависит от класса риска и комплектности документов." },
@@ -33,11 +43,13 @@ const categoriesData: Record<string, CategoryData> = {
     ],
   },
   "vysokotehnologichnye": {
-    title: "Регистрация различных видов медицинских изделий",
+    title: "Регистрация высокотехнологичных медицинских изделий",
+    metaTitle: "Высокотехнологичные медизделия — IVD и медицинское ПО",
+    metaDescription: "Регистрация высокотехнологичных медицинских изделий: изделия для in vitro диагностики и медицинское программное обеспечение. Сопровождение сложных проектов с учётом специфики по всей России.",
     description: "Регистрация сложных медицинских изделий: изделий для инвитродиагностики и медицинского программного обеспечения. Сопровождаем проекты с учётом специфики высокотехнологичной продукции.",
     services: [
-      { label: "Регистрация изделий для инвитродиагностики", to: "/uslugi/vysokotehnologichnye/ivd/", price: "Цена по запросу" },
-      { label: "Регистрация медицинского ПО", to: "/uslugi/vysokotehnologichnye/medicinskoe-po/", price: "Цена по запросу" },
+      { label: "Регистрация изделий для инвитродиагностики", to: "/uslugi/registraciya-meditsinskih-izdeliy/ivd/", price: "от 90 000 ₽" },
+      { label: "Регистрация медицинского ПО", to: "/uslugi/registraciya-meditsinskih-izdeliy/medicinskoe-po/", price: "от 80 000 ₽" },
     ],
     faq: [
       { q: "Чем отличается регистрация IVD-изделий?", a: "Особой спецификой клинико-лабораторных испытаний и требованиями к аналитическим характеристикам." },
@@ -46,7 +58,9 @@ const categoriesData: Record<string, CategoryData> = {
     ],
   },
   "ispytaniya-meditsinskih-izdeliy": {
-    title: "Испытания медицинских изделий",
+    title: "Проведение испытаний медицинских изделий для регистрации",
+    metaTitle: "Испытания медицинских изделий — цена, виды и проведение",
+    metaDescription: "Испытания медицинских изделий для регистрации: технические, клинические и токсикологические. Организация и проведение в аккредитованной лаборатории, требования и сроки.",
     description: "Организация и сопровождение технических, клинических, ЭМС и токсикологических испытаний. Поможем подобрать лаборатории и выстроить оптимальный маршрут.",
     services: [
       { label: "Клинические испытания", to: "/uslugi/ispytaniya-meditsinskih-izdeliy/klinicheskie/", price: "от 40 000 ₽" },
@@ -63,11 +77,13 @@ const categoriesData: Record<string, CategoryData> = {
     ],
   },
   "razrabotka-dokumentacii": {
-    title: "Разработка документации",
+    title: "Разработка документации для регистрации медицинских изделий",
+    metaTitle: "Разработка документации для регистрации медизделий от 30 000 ₽",
+    metaDescription: "Разработка документации для регистрации медицинских изделий: досье, ТУ, риск-менеджмент, инструкции. Подготовка под требования Росздравнадзора. Услуга под ключ.",
     description: "Подготовка технических условий, файлов управления рисками и иной нормативной документации для регистрации и производства медицинских изделий.",
     services: [
       { label: "Разработка ТУ", to: "/uslugi/razrabotka-dokumentacii/tu/", price: "от 40 000 ₽" },
-      { label: "Риск-менеджмент", to: "/uslugi/razrabotka-dokumentacii/risk-management/", price: "Цена по запросу" },
+      { label: "Управление рисками", to: "/uslugi/razrabotka-dokumentacii/risk-management/", price: "Цена по запросу" },
     ],
     faq: [
       { q: "Что входит в ТУ?", a: "Технические характеристики, требования безопасности, методы контроля." },
@@ -78,7 +94,9 @@ const categoriesData: Record<string, CategoryData> = {
     ],
   },
   "smk": {
-    title: "СМК и производство",
+    title: "Система менеджмента качества медицинских изделий",
+    metaTitle: "Менеджмент качества медицинских изделий по ISO 13485",
+    metaDescription: "СМК медицинских изделий (ISO 13485) — внедрение, аудит и сопровождение инспектирования производства Росздравнадзором. Стоимость от 60 000 ₽.",
     description: "Разработка и внедрение системы менеджмента качества по ISO 13485, а также сопровождение инспектирования производства Росздравнадзором.",
     services: [
       { label: "Внедрение СМК", to: "/uslugi/smk/vnedrenie/", price: "Цена по запросу" },
@@ -93,11 +111,14 @@ const categoriesData: Record<string, CategoryData> = {
     ],
   },
   "postregistracionnoe-obsluzhivanie": {
-    title: "Пострегистрационное обслуживание",
+    title: "Сопровождение медицинских изделий после регистрации",
+    metaTitle: "Пострегистрационный мониторинг медицинских изделий по РФ",
+    metaDescription: "Сопровождение медицинских изделий после получения регистрационного удостоверения: постклинический мониторинг, внесение изменений в РУ, юридическая поддержка. Цены от 25 000 ₽. Работаем по всей России.",
     description: "Сопровождение медицинских изделий после получения регистрационного удостоверения: постклинический мониторинг, юридическая поддержка и внесение изменений в РУ.",
     services: [
-      { label: "Постклинический мониторинг", to: "/uslugi/postregistracionnoe-obsluzhivanie/pkm/", price: "Цена по запросу" },
-      { label: "Юридическая поддержка", to: "/uslugi/postregistracionnoe-obsluzhivanie/yuridicheskaya-podderzhka/", price: "Цена по запросу" },
+      { label: "Внесение изменений в РУ", to: "/uslugi/postregistracionnoe-obsluzhivanie/izmeneniya-v-ru/", price: "Цена по запросу" },
+      { label: "Постклинический мониторинг МИ", to: "/uslugi/postregistracionnoe-obsluzhivanie/pkm/", price: "от 20 000 ₽" },
+      { label: "Юридическое сопровождение МИ", to: "/uslugi/postregistracionnoe-obsluzhivanie/yuridicheskaya-podderzhka/", price: "от 30 000 ₽" },
     ],
     faq: [
       { q: "Что такое постклинический мониторинг?", a: "Это систематический сбор и анализ данных о безопасности и эффективности изделия после регистрации." },
@@ -124,6 +145,10 @@ const ServiceCategory = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>{data.metaTitle}</title>
+        <meta name="description" content={data.metaDescription} />
+      </Helmet>
       <div className="container py-12">
         <Breadcrumbs items={[{ label: "Услуги", to: "/uslugi/" }, { label: data.title }]} />
         <h1 className="text-3xl md:text-4xl font-bold mb-4">{data.title}</h1>

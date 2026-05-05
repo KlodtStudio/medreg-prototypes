@@ -31,6 +31,7 @@ const App = () => (
           <Route path="/" element={<IndexV2 />} />
           <Route path="/uslugi/" element={<ServicesIndex />} />
           <Route path="/uslugi/:category/" element={<ServiceCategory />} />
+          <Route path="/uslugi/sertifikaciya/" element={<ServicePage />} />
           <Route path="/uslugi/:category/:service/" element={<ServicePage />} />
           <Route path="/ceny/" element={<PricesPage />} />
           <Route path="/faq/" element={<FAQPage />} />

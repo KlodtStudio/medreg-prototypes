@@ -19,15 +19,17 @@ export const serviceCategories: ServiceCategory[] = [
       { label: "Подлежит ли изделие регистрации", to: "/uslugi/registraciya-meditsinskih-izdeliy/podlezhit-li-registracii/" },
       { label: "Ускоренная регистрация", to: "/uslugi/registraciya-meditsinskih-izdeliy/uskorennaya/" },
       { label: "Регистрация по ЕАЭС", to: "/uslugi/registraciya-meditsinskih-izdeliy/eaes/" },
+      { label: "Регистрация изделий для инвитродиагностики", to: "/uslugi/registraciya-meditsinskih-izdeliy/ivd/" },
+      { label: "Регистрация медицинского ПО", to: "/uslugi/registraciya-meditsinskih-izdeliy/medicinskoe-po/" },
+      { label: "Сертификация медицинских изделий", to: "/uslugi/registraciya-meditsinskih-izdeliy/sertifikaciya/" },
+      { label: "Декларация соответствия ТР ТС", to: "/uslugi/registraciya-meditsinskih-izdeliy/deklaraciya-tr-ts/" },
+      { label: "Сертификат соответствия ТР ТС", to: "/uslugi/registraciya-meditsinskih-izdeliy/sertifikat-tr-ts/" },
     ],
   },
   {
     label: "Регистрация различных видов медицинских изделий",
     to: "/uslugi/vysokotehnologichnye/",
-    children: [
-      { label: "Регистрация изделий для инвитродиагностики", to: "/uslugi/vysokotehnologichnye/ivd/" },
-      { label: "Регистрация медицинского ПО", to: "/uslugi/vysokotehnologichnye/medicinskoe-po/" },
-    ],
+    children: [],
   },
   {
     label: "Испытания медицинских изделий",
@@ -40,15 +42,15 @@ export const serviceCategories: ServiceCategory[] = [
     ],
   },
   {
-    label: "Разработка документации",
+    label: "Разработка документации для регистрации медизделий",
     to: "/uslugi/razrabotka-dokumentacii/",
     children: [
       { label: "Разработка ТУ", to: "/uslugi/razrabotka-dokumentacii/tu/" },
-      { label: "Риск-менеджмент", to: "/uslugi/razrabotka-dokumentacii/risk-management/" },
+      { label: "Управление рисками", to: "/uslugi/razrabotka-dokumentacii/risk-management/" },
     ],
   },
   {
-    label: "СМК и производство",
+    label: "Система менеджмента качества (СМК) медицинских изделий",
     to: "/uslugi/smk/",
     children: [
       { label: "Внедрение СМК", to: "/uslugi/smk/vnedrenie/" },
@@ -59,8 +61,9 @@ export const serviceCategories: ServiceCategory[] = [
     label: "Пострегистрационное обслуживание",
     to: "/uslugi/postregistracionnoe-obsluzhivanie/",
     children: [
-      { label: "Постклинический мониторинг", to: "/uslugi/postregistracionnoe-obsluzhivanie/pkm/" },
-      { label: "Юридическая поддержка", to: "/uslugi/postregistracionnoe-obsluzhivanie/yuridicheskaya-podderzhka/" },
+      { label: "Внесение изменений в РУ", to: "/uslugi/postregistracionnoe-obsluzhivanie/izmeneniya-v-ru/" },
+      { label: "Постклинический мониторинг МИ", to: "/uslugi/postregistracionnoe-obsluzhivanie/pkm/" },
+      { label: "Юридическое сопровождение МИ", to: "/uslugi/postregistracionnoe-obsluzhivanie/yuridicheskaya-podderzhka/" },
     ],
   },
 ];
