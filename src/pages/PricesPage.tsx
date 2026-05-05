@@ -43,7 +43,7 @@ const priceSections: PriceSection[] = [
     to: "/uslugi/razrabotka-dokumentacii/",
     rows: [
       { name: "Разработка ТУ", price: "от 40 000 ₽", to: "/uslugi/razrabotka-dokumentacii/tu/" },
-      { name: "Риск-менеджмент (файл управления рисками)", price: "Цена по запросу", to: "/uslugi/razrabotka-dokumentacii/risk-management/" },
+      { name: "Разработка файла менеджмента риска", price: "Цена по запросу", to: "/uslugi/razrabotka-dokumentacii/risk-management/" },
     ],
   },
   {

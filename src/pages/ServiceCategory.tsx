@@ -80,7 +80,7 @@ const categoriesData: Record<string, CategoryData> = {
     description: "Подготовка технических условий, файлов управления рисками и иной нормативной документации для регистрации и производства медицинских изделий.",
     services: [
       { label: "Разработка ТУ", to: "/uslugi/razrabotka-dokumentacii/tu/", price: "от 40 000 ₽" },
-      { label: "Управление рисками", to: "/uslugi/razrabotka-dokumentacii/risk-management/", price: "Цена по запросу" },
+      { label: "Разработка файла менеджмента риска", to: "/uslugi/razrabotka-dokumentacii/risk-management/", price: "Цена по запросу" },
     ],
     faq: [
       { q: "Что входит в ТУ?", a: "Технические характеристики, требования безопасности, методы контроля." },

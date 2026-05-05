@@ -38,7 +38,7 @@ export const serviceCategories: ServiceCategory[] = [
     to: "/uslugi/razrabotka-dokumentacii/",
     children: [
       { label: "Разработка ТУ", to: "/uslugi/razrabotka-dokumentacii/tu/" },
-      { label: "Управление рисками", to: "/uslugi/razrabotka-dokumentacii/risk-management/" },
+      { label: "Разработка файла менеджмента риска", to: "/uslugi/razrabotka-dokumentacii/risk-management/" },
     ],
   },
   {
