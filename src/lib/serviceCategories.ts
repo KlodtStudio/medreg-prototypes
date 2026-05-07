@@ -14,8 +14,6 @@ export const serviceCategories: ServiceCategory[] = [
     label: "Регистрация медицинских изделий",
     to: "/uslugi/registraciya-meditsinskih-izdeliy/",
     children: [
-      { label: "Регистрация «под ключ»", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/" },
-      { label: "Внесение изменений в РУ", to: "/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/" },
       { label: "Подлежит ли изделие регистрации", to: "/uslugi/registraciya-meditsinskih-izdeliy/podlezhit-li-registracii/" },
       { label: "Ускоренная регистрация", to: "/uslugi/registraciya-meditsinskih-izdeliy/uskorennaya/" },
       { label: "Регистрация по ЕАЭС", to: "/uslugi/registraciya-meditsinskih-izdeliy/eaes/" },

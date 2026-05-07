@@ -23,8 +23,6 @@ const categoriesData: Record<string, CategoryData> = {
     metaDescription: "Регистрация медицинских изделий и получение регистрационного удостоверения (РУ) в Росздравнадзоре под ключ. Подготовка документации, организация испытаний, сопровождение процедуры. Работаем по всей России.",
     description: "Полный цикл регистрации: от прогноза сроков до получения регистрационного удостоверения. Подходит производителям и дистрибьюторам отечественных и зарубежных медицинских изделий любого класса риска.",
     services: [
-      { label: "Регистрация «под ключ»", to: "/uslugi/registraciya-meditsinskih-izdeliy/pod-klyuch/", price: "от 750 000 ₽" },
-      { label: "Внесение изменений в РУ", to: "/uslugi/registraciya-meditsinskih-izdeliy/izmeneniya-v-ru/", price: "от 60 000 ₽" },
       { label: "Подлежит ли изделие регистрации", to: "/uslugi/registraciya-meditsinskih-izdeliy/podlezhit-li-registracii/", price: "от 35 000 ₽" },
       { label: "Ускоренная регистрация", to: "/uslugi/registraciya-meditsinskih-izdeliy/uskorennaya/", price: "Цена по запросу" },
       { label: "Регистрация по ЕАЭС", to: "/uslugi/registraciya-meditsinskih-izdeliy/eaes/", price: "Цена по запросу" },
